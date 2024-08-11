@@ -1,0 +1,33 @@
+body {
+    background-color: #f8f9fa;
+}
+ 
+.task-form {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+ 
+.priority-low {
+    background-color: #28a745;
+}
+ 
+.priority-medium {
+    background-color: #ffc107;
+}
+ 
+.priority-high {
+    background-color: #dc3545;
+}
+ 
+.task-table {
+    background-color: #ffffff;
+}
+ 
+.task-table th {
+    background-color: #f8f9fa;
+}
+ 
+.task-table tr:hover {
+    background-color: #f1f3f5;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User List</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="card">
+        <div class="mt-3">
+          <p>
+            <a href="{{ url_for('register') }}" class="btn btn-secondary">
+              <i class="fas fa-plus"></i>Add Register</a
+            >
+
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">
+              <i class="fas fa-plus"></i>Add task</a
+            >
+          </p>
+        </div>
+        <div class="card-header">
+          <h4 class="mb-0">User List</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Full Name</th>
+                  <th>Email</th>
+                  <th>Status</th>
+                  <th>Role</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for user in users %}
+                <tr>
+                  <td>{{ user.id }}</td>
+                  <td>{{ user.ful_name }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>
+                    <span
+                      class="badge badge-{{ 'success' if user.status == 'active' else 'secondary' }}"
+                    >
+                      {{ user.status.capitalize() }}
+                    </span>
+                  </td>
+                  <td>{{ user.role.capitalize() }}</td>
+                  <td>
+                    <a
+                      href="{{ url_for('edit_user', id=user.id) }}"
+                      class="btn btn-primary btn-sm"
+                    >
+                      <i class="fas fa-edit"></i> Edit
+                    </a>
+
+                    <a
+                      href="{{ url_for('delete_user', id=user.id) }}"
+                      class="btn btn-danger btn-sm"
+                    >
+                      <i class="fas fa-trash"></i> Delete
+                    </a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- FontAwesome Icons -->
+  </body>
+</html>
